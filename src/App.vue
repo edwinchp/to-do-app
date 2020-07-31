@@ -2,8 +2,10 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <NewComponent/>
+    <ul>
+      <li v-bind:key="pkm.id" v-for="pkm in pokemon">{{pkm.name + pkm.level}}</li>
+    </ul>
     <HelloWorld msg="Welcome to Your Vue App"/>
-    
   </div>
 </template>
 
@@ -16,7 +18,24 @@ export default {
   components: {
     HelloWorld,
     NewComponent,
-    
+  },
+
+  data(){
+    return{
+      pokemon: [
+        {
+          id: 1,
+          name: "Charizard",
+          level: 55
+        },
+        {
+          id: 2,
+          name: "Venusaur",
+          level: 66
+        }
+      ]
+    }
+
   }
 }
 </script>
